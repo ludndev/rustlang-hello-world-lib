@@ -6,7 +6,8 @@ description = "A Rust crate for greeting people."
 keywords = ["rust", "greeting", "hello"]
 license = "MIT"
 license-file = "LICENSE"
-homepage = "https://github.com/ludndev/rustlang-hello-world-lib"
+homepage = "https://crates.io/crates/ludndev-hello-world"
 repository = "https://github.com/ludndev/rustlang-hello-world-lib"
+documentation = "https://docs.rs/unicode-ident/0.1.0/ludndev-hello-world"
 
 [dependencies]
