@@ -1,0 +1,47 @@
+name: Run Tests on PR Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+  release:
+    types:
+      - created
+
+env:
+  CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
+  RUSTFLAGS: -Dwarnings
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: cargo build --verbose
+
+      - name: Run tests
+        run: cargo test --verbose
+
+  release:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.event_name == 'release' && success()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Publish to Crates.io
+        run: cargo publish --token ${CRATES_TOKEN}
