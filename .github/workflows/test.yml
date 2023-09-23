@@ -1,0 +1,26 @@
+name: Run Tests on PR Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          components: rustfmt
+
+      - name: Build and Test
+        run: |
+          cargo build --verbose
+          cargo test --verbose
