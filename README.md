@@ -7,13 +7,13 @@ This Rust project provides a simple greeting function that greets a person by na
 To use this library in your Rust project, add it as a dependency in your `Cargo.toml`:
 ```toml
 [dependencies]
-hello-world = "0.1.0"
+ludndev-hello-world = "0.1.0"
 ```
 
 Then, you can use it in your code:
 
 ```rust
-use hello-world::greet;
+use ludndev-hello-world::greet;
 
 fn main() {
     let name = "John";
@@ -31,7 +31,7 @@ This function takes a `name` as input and returns a greeting message. If the `na
 ## Examples
 
 ```rust
-use hello-world::greet;
+use ludndev-hello-world::greet;
 
 fn main() {
     let name = "Alice";

@@ -1,5 +1,5 @@
 [package]
-name = "hello-world"
+name = "ludndev-hello-world"
 version = "0.1.0"
 edition = "2021"
 description = "A Rust crate for greeting people."
