@@ -2,8 +2,12 @@ name: Run Tests on PR Merge
 
 on:
   pull_request:
+    branches: [ "main" ]
     types:
       - closed
+env:
+  RUSTFLAGS: -Dwarnings
+  CARGO_TERM_COLOR: always
 
 jobs:
   test:
@@ -11,16 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-          components: rustfmt
+      - name: Build
+        run: cargo build --verbose
 
-      - name: Build and Test
-        run: |
-          cargo build --verbose
-          cargo test --verbose
+      - name: Run tests
+        run: cargo test --verbose
