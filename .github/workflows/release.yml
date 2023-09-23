@@ -11,7 +11,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,20 +23,6 @@ jobs:
 
       - name: Run tests
         run: cargo test --verbose
-
-  release:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
 
       - name: Publish to Crates.io
         run: cargo publish --token ${CRATES_TOKEN}

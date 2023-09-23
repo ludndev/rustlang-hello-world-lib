@@ -1,13 +1,12 @@
 [package]
 name = "ludndev-hello-world"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A Rust crate for greeting people."
 keywords = ["rust", "greeting", "hello"]
-license = "MIT"
 license-file = "LICENSE"
 homepage = "https://crates.io/crates/ludndev-hello-world"
 repository = "https://github.com/ludndev/rustlang-hello-world-lib"
-documentation = "https://docs.rs/ludndev-hello-world/0.1.0/ludndev_hello_world/"
+documentation = "https://docs.rs/ludndev-hello-world"
 
 [dependencies]
