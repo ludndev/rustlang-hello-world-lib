@@ -2,7 +2,11 @@
 name = "hello-world"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "A Rust crate for greeting people."
+keywords = ["rust", "greeting", "hello"]
+license = "MIT"
+license-file = "LICENSE"
+homepage = "https://github.com/ludndev/rustlang-hello-world-lib"
+repository = "https://github.com/ludndev/rustlang-hello-world-lib"
 
 [dependencies]
