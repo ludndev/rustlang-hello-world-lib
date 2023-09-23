@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 description = "A Rust crate for greeting people."
 keywords = ["rust", "greeting", "hello"]
-license = "MIT"
 license-file = "LICENSE"
 homepage = "https://crates.io/crates/ludndev-hello-world"
 repository = "https://github.com/ludndev/rustlang-hello-world-lib"
