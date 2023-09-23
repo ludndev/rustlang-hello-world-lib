@@ -1,4 +1,4 @@
-name: Run Tests on PR Merge
+name: Release to Crates.io
 
 on:
   release:
