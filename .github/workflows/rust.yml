@@ -3,7 +3,9 @@ name: Run Tests on PR Merge
 on:
   pull_request:
     types:
+      - opened
       - closed
+      - reopened
 
 env:
   CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
