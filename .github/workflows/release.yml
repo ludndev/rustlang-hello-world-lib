@@ -1,9 +1,9 @@
 name: Run Tests on PR Merge
 
 on:
-  pull_request:
+  release:
     types:
-      - closed
+      - created
 
 env:
   CRATES_TOKEN: ${{ secrets.CRATES_TOKEN }}
@@ -13,7 +13,6 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
 
     steps:
       - name: Checkout code
@@ -24,3 +23,20 @@ jobs:
 
       - name: Run tests
         run: cargo test --verbose
+
+  release:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Publish to Crates.io
+        run: cargo publish --token ${CRATES_TOKEN}
